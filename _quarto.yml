@@ -4,7 +4,6 @@ project:
   render:
     - paper/paper.qmd
     - presentation/presentation.qmd
-    - paper/appendix.qmd
     - poster/poster.qmd
 
 author:
