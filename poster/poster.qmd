@@ -29,6 +29,27 @@ Two mechanisms explain engine thirst:
 **H1:** More cylinders mean fewer miles per gallon.
 
 **H2:** Holding cylinders constant, more horsepower means fewer miles per gallon.
+
+## Background
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## Related work
+
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit
+- Sed do eiusmod tempor incididunt ut labore et dolore
+- Ut enim ad minim veniam, quis nostrud exercitation
+- Duis aute irure dolor in reprehenderit in voluptate
+
+Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.
+
+## Scope conditions
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 :::
 
 ::: column
@@ -55,6 +76,20 @@ $$
 source("../code/03_figures.R")
 plot_hp_mpg(base_size = 14, point_size = 3.2)
 ```
+
+## Robustness
+
+Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.
+
+1. Lorem ipsum dolor sit amet, consectetur adipiscing elit
+2. Sed do eiusmod tempor incididunt ut labore et dolore magna
+3. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+## Heterogeneity
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 :::
 
 ::: column
@@ -82,4 +117,20 @@ cat("\n\\end{center}\n")
 - Future work: data from after 1974, and asking who *needs* a V8 for groceries
 
 Vroom?
+
+## Next steps
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida.
+
+## Acknowledgements
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+## References
+
+- Lorem, I. (2025). *Dolor Sit Amet*. Consectetur Press.
+- Ipsum, L., & Dolor, S. (2024). Adipiscing elit sed do eiusmod. *Journal of Tempor Studies*, 12(3), 45--67.
+- Amet, C. (2023). Ut labore et dolore magna aliqua. *Review of Veniam*, 8(1), 1--22.
 :::
