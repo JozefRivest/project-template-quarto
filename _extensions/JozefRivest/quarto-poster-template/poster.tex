@@ -90,11 +90,13 @@ $endif$
 % Logo (optional)
 % ====================
 
+% `logo` sets the image (path relative to the .qmd; default: blockM.png),
+% `logo-height` its height (default: 5cm).
 $if(logo-right)$
-\logoright{\includegraphics[height=5cm]{blockM.png}}
+\logoright{\includegraphics[height=$if(logo-height)$$logo-height$$else$5cm$endif$]{$if(logo)$$logo$$else$blockM.png$endif$}}
 $endif$
 $if(logo-left)$
-\logoleft{\includegraphics[height=5cm]{blockM.png}}
+\logoleft{\includegraphics[height=$if(logo-height)$$logo-height$$else$5cm$endif$]{$if(logo)$$logo$$else$blockM.png$endif$}}
 $endif$
 
 % ====================

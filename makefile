@@ -24,7 +24,8 @@ _output/presentation/presentation.pdf: presentation/presentation.qmd \
 	$(FIGURES_TABLES) _quarto.yml
 	quarto render presentation/presentation.qmd
 
-_output/poster/poster.pdf: poster/poster.qmd $(FIGURES_TABLES) _quarto.yml
+_output/poster/poster.pdf: poster/poster.qmd $(FIGURES_TABLES) _quarto.yml \
+	$(wildcard _extensions/JozefRivest/quarto-poster-template/*)
 	quarto render poster/poster.qmd
 
 clean:

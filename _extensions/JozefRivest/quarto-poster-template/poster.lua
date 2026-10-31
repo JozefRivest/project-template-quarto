@@ -68,3 +68,14 @@ function Div(el)
   out:insert(raw("\\end{column}"))
   return out
 end
+
+-- Pass logo settings to the template as raw LaTeX, so a path such as
+-- `logos/my_logo.png` is not escaped (`my\_logo.png`) by pandoc.
+function Meta(meta)
+  for _, key in ipairs({ "logo", "logo-height" }) do
+    if meta[key] ~= nil then
+      meta[key] = pandoc.RawInline("latex", pandoc.utils.stringify(meta[key]))
+    end
+  end
+  return meta
+end

@@ -27,10 +27,9 @@ them must be shared under the same license.
 
 ## Gemini poster theme
 
-Files: `.templates/poster/beamerthemegeminin.sty`,
-`.templates/poster/beamercolorthemegemini.sty`, `poster/beamerthemegemini.sty`,
-`poster/beamercolorthemegemini.sty`, `poster/beamercolorthememsu.sty`, and the
-corresponding `.sty` files in `_extensions/JozefRivest/quarto-poster-template/`
+Files: `beamerthemegemini.sty`, `beamercolorthemegemini.sty`, and
+`beamercolorthememsu.sty` in `_extensions/JozefRivest/quarto-poster-template/`
+(Quarto copies them into `poster/` when the poster is rendered)
 
 Based on [Gemini](https://github.com/anishathalye/gemini), used under the MIT
 License:
@@ -62,10 +61,10 @@ SOFTWARE.
 
 ## University of Michigan logo
 
-Files: `blockM.png` (in `.templates/poster/logos/`, `poster/`, and
-`_extensions/JozefRivest/quarto-poster-template/logos/`)
+Files: `_extensions/JozefRivest/quarto-poster-template/logos/blockM.png`
+(copied into `poster/` when the poster is rendered)
 
 The Block M is a trademark of the Regents of the University of Michigan. It is
 **not** covered by the MIT License or any other license in this repository.
-Replace it with your own institution's logo, or follow the University of
-Michigan's brand guidelines.
+Use your own institution's logo instead (set `logo:` in `poster/poster.qmd`),
+or follow the University of Michigan's brand guidelines.

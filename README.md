@@ -155,8 +155,17 @@ Use `. . .` to reveal content step by step.
 
 `poster/poster.qmd` uses the `quarto-poster-template` extension (a Gemini
 beamerposter theme in Michigan colors). The title, author, `university`,
-`email`, and `github` fields fill the header and footer, and `logo-right` or
-`logo-left` places the block M logo. Content is laid out in columns:
+`email`, and `github` fields fill the header and footer. `logo-right: true` or
+`logo-left: true` adds a logo to the header; by default it is the Block M, and
+you can use your own image and size:
+
+```yaml
+logo-right: true
+logo: logos/my_logo.png   # path relative to poster.qmd
+logo-height: 4cm          # default: 5cm
+```
+
+Content is laid out in columns:
 
 ```markdown
 ::: column
@@ -237,7 +246,8 @@ _output/presentation/presentation.pdf: presentation/presentation.qmd \
 	$(FIGURES_TABLES) _quarto.yml
 	quarto render presentation/presentation.qmd
 
-_output/poster/poster.pdf: poster/poster.qmd $(FIGURES_TABLES) _quarto.yml
+_output/poster/poster.pdf: poster/poster.qmd $(FIGURES_TABLES) _quarto.yml \
+	$(wildcard _extensions/JozefRivest/quarto-poster-template/*)
 	quarto render poster/poster.qmd
 
 clean:
