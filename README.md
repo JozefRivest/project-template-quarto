@@ -43,9 +43,53 @@ bibliography, author metadata, and output folder.
 │   └── poster.qmd
 ├── references
 │   └── refs.bib
+├── renv                         # renv settings (the package library is not committed)
+├── renv.lock                    # Exact R package versions
+├── .Rprofile                    # Activates renv when R starts in the project
 ├── _output                      # Rendered PDFs land here
+├── LICENSE
+├── THIRD_PARTY_NOTICES.md
 └── README.md
 ```
+
+## Requirements
+
+- [Quarto](https://quarto.org) ≥ 1.8
+- [R](https://www.r-project.org) (the lockfile was created with R 4.6.1) and
+  the [renv](https://rstudio.github.io/renv/) package
+- A LaTeX distribution. A full TeX Live or MacTeX install is recommended: the
+  paper uses biblatex with biber, and the poster is compiled with LuaLaTeX and
+  needs the Lato font (TeX Live's `lato` package), which TinyTeX does not
+  include by default.
+- GNU `make` (optional, to use the `makefile`)
+- Python 3 with `pyyaml` (optional, for the reading notes; `openpyxl` for
+  Excel export)
+
+### R packages with renv
+
+The R packages used by the project, and their exact versions, are recorded in
+`renv.lock` with [renv](https://rstudio.github.io/renv/). The first time you
+open the project, install them into a project library:
+
+```r
+install.packages("renv")   # if needed
+renv::restore()
+```
+
+R activates renv automatically whenever it starts in the project (through
+`.Rprofile`), including when Quarto renders the documents, so the paper,
+slides, and poster are always built with the versions in the lockfile.
+
+When you add or update a package, record the change:
+
+```r
+install.packages("fixest")  # or renv::install("fixest")
+renv::snapshot()            # update renv.lock
+```
+
+Commit `renv.lock` along with your code. `renv::status()` reports whether the
+installed packages and the lockfile agree. The project library itself
+(`renv/library/`) is not committed.
 
 ## Rendering
 
