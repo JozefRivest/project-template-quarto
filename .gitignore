@@ -1,2 +1,6 @@
 /.quarto/
 **/*.quarto_ipynb
+
+# LaTeX build artifacts
+*.ptc
+*.log

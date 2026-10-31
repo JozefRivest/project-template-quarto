@@ -65,6 +65,11 @@ bibliography, author metadata, and output folder.
 - Python 3 with `pyyaml` (optional, for the reading notes; `openpyxl` for
   Excel export)
 
+The template is developed and tested on Linux, and should work the same way on
+macOS. On Windows (untested), the slides need one change: in `_environment`,
+replace the trailing `:` in `TEXINPUTS=../.templates//:` with `;`, the
+path separator Windows uses.
+
 ### R packages with renv
 
 The R packages used by the project, and their exact versions, are recorded in
