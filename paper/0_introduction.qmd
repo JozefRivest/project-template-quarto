@@ -1,3 +1,7 @@
 # Introduction
 
-Here's a citation [@arel-bundock25].
+Since the dawn of the internal combustion engine, humanity has asked one question above all others: *why am I at the gas station again?* Philosophers have pondered it. Poets have wept over it. Your uncle with the 1973 Cadillac has explained it to you at length, uninvited, at Thanksgiving.
+
+This paper brings the full weight of modern social science to bear on this question. Using the canonical `mtcars` dataset---32 automobiles lovingly road-tested by *Motor Trend* magazine in 1974, a year when "fuel efficiency" was considered a communist plot---I estimate how cylinders and horsepower affect fuel economy. Following best practice in the interpretation of statistical models [@arel-bundock25], I resist the urge to report only the stars, though there are some, and they are lovely.
+
+The argument is developed in @sec-theory, the research design is presented in @sec-design, and the main findings---including one hypothesis that tragically runs out of gas---are reported in @sec-results.

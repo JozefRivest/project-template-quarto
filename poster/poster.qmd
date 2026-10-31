@@ -1,5 +1,5 @@
 ---
-title: "How geopolitical factors change people"
+title: "Thirsty Engines: Why Your 1974 Car Hates Your Wallet"
 author: Jozef Rivest
 university: University of Michigan
 email: jrivest@umich.edu
@@ -13,26 +13,73 @@ format:
 ::: column
 ## Motivation
 
-Introduction
+Humanity's oldest question: *why am I at the gas station again?* Your uncle with the 1973 Cadillac has opinions. This poster has data.
 
 ## Puzzle
 
+The Toyota Corolla gets **33.9** miles per gallon. The Cadillac Fleetwood gets **10.4**. What is the Cadillac *doing* with all that gas?
+
 ## A bit of theory
 
+Two mechanisms explain engine thirst:
+
+1. **Many Mouths:** each cylinder is a tiny mouth that drinks gasoline
+2. **Enthusiasm:** horsepower is *how hard* those mouths drink
+
+**H1:** More cylinders mean fewer miles per gallon.
+
+**H2:** Holding cylinders constant, more horsepower means fewer miles per gallon.
 :::
 
 ::: column
 ## Design
-Cool stuff
+
+I estimate the following model with OLS, because I know how to do it:
+
+$$
+\text{MPG}_i = \beta_0 + \beta_1 \text{Cyl}_i + \beta_2 \text{HP}_i + \varepsilon_i
+$$
 
 ## Data
 
+- `mtcars`: 32 cars road-tested by *Motor Trend* in 1974
+- Outcome: miles per gallon (higher = smugger)
+- Predictors: cylinders (mouths) and horsepower (enthusiasm)
+
 ## Results 1
+
+```{r}
+#| fig-width: 7
+#| fig-height: 4.5
+#| out-width: 100%
+source("../code/03_figures.R")
+plot_hp_mpg(base_size = 14, point_size = 3.2)
+```
 :::
 
 ::: column
 ## Results 2
 
+**H1 confirmed:** an 8-cylinder car loses about 8.5 mpg relative to a 4-cylinder car.
+
+```{r}
+#| results: asis
+source("../code/04_tables.R")
+tab <- modelsummary(mod, stars = TRUE, coef_map = coef_labels,
+                    gof_map = gof_rows, output = "data.frame")
+tab$term[tab$statistic == "std.error"] <- ""
+cat("\\begin{center}\\LARGE\n")
+cat(knitr::kable(tab[, c("term", "(1)")], format = "latex", booktabs = TRUE,
+                 col.names = c("", "Model 1"), align = "lc",
+                 row.names = FALSE, linesep = ""))
+cat("\n\\end{center}\n")
+```
+
 ## Conclusion
-Right?
+
+- More cylinders, fewer miles per gallon
+- **H2 runs out of gas:** horsepower is guilty in spirit, but $p \approx 0.13$
+- Future work: data from after 1974, and asking who *needs* a V8 for groceries
+
+Vroom?
 :::

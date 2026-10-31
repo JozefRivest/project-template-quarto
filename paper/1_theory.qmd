@@ -1,1 +1,10 @@
-# Theory
+# Theory {#sec-theory}
+
+I propose a *Theory of Engine Thirst*. Each cylinder is, in essence, a tiny mouth that drinks gasoline. More mouths, more drinking. This is the **Many Mouths Mechanism**.
+
+A second, competing account holds that it is not the number of mouths but the *enthusiasm* with which they drink. Horsepower captures this enthusiasm: an engine that produces 335 horsepower, like the Maserati Bora, is not sipping---it is chugging. This is the **Enthusiasm Mechanism**.
+
+These mechanisms yield two testable hypotheses:
+
+1. **H1 (Many Mouths):** Cars with more cylinders travel fewer miles per gallon.
+2. **H2 (Enthusiasm):** Holding cylinders constant, more horsepower reduces miles per gallon.

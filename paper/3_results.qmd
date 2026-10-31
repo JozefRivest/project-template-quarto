@@ -1,0 +1,24 @@
+# Results {#sec-results}
+
+@fig-scatter shows the raw relationship between horsepower and fuel economy. The four-cylinder cars (top left) are clearly the overachievers of the group, the kind of cars that do their homework early. The eight-cylinder cars (bottom right) are having a much better time and a much worse fuel bill.
+
+```{r}
+#| label: fig-scatter
+#| fig-cap: "Horsepower and fuel economy, by number of tiny drinking mouths"
+#| fig-width: 6.5
+#| fig-height: 4
+source("../code/03_figures.R")
+plot_hp_mpg()
+```
+
+@tbl-regression reports estimates from @eq-model. The results strongly support **H1**. Relative to a four-cylinder car, a six-cylinder car loses about 6 miles per gallon, and an eight-cylinder car loses about 8.5---roughly the distance between you and the nearest gas station when the light comes on.
+
+```{r}
+#| label: tbl-regression
+#| tbl-cap: "The determinants of engine thirst (OLS estimates)"
+source("../code/04_tables.R")
+modelsummary(list("Model 1" = mod), stars = TRUE, coef_map = coef_labels,
+             gof_map = gof_rows, width = 0.6)
+```
+
+**H2**, sadly, runs out of gas. Once we account for cylinders, horsepower has a small negative coefficient (about 2.4 mpg per 100 horsepower) that is not statistically distinguishable from zero ($p \approx 0.13$). The Enthusiasm Mechanism is not dead, but it is idling in the driveway.

@@ -1,3 +1,5 @@
 # Appendix {.appendix #sec-appendix}
 
 ## Supporting material
+
+Table A1 would list all 32 cars by name, but the author got distracted by the fact that the dataset contains both a "Hornet 4 Drive" and a "Hornet Sportabout" and spent the afternoon reading about AMC instead.

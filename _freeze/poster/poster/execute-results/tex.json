@@ -1,0 +1,17 @@
+{
+  "hash": "3493dc4247a67945bf3f08f91422bea0",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Thirsty Engines: Why Your 1974 Car Hates Your Wallet\"\nauthor: Jozef Rivest\nuniversity: University of Michigan\nemail: jrivest@umich.edu\ngithub: https://github.com/JozefRivest\nlogo-right: true\ndate: last-modified\nformat:\n  quarto-poster-template-pdf: default\n---\n\n::: column\n## Motivation\n\nHumanity's oldest question: *why am I at the gas station again?* Your uncle with the 1973 Cadillac has opinions. This poster has data.\n\n## Puzzle\n\nThe Toyota Corolla gets **33.9** miles per gallon. The Cadillac Fleetwood gets **10.4**. What is the Cadillac *doing* with all that gas?\n\n## A bit of theory\n\nTwo mechanisms explain engine thirst:\n\n1. **Many Mouths:** each cylinder is a tiny mouth that drinks gasoline\n2. **Enthusiasm:** horsepower is *how hard* those mouths drink\n\n**H1:** More cylinders mean fewer miles per gallon.\n\n**H2:** Holding cylinders constant, more horsepower means fewer miles per gallon.\n:::\n\n::: column\n## Design\n\nI estimate the following model with OLS, because I know how to do it:\n\n$$\n\\text{MPG}_i = \\beta_0 + \\beta_1 \\text{Cyl}_i + \\beta_2 \\text{HP}_i + \\varepsilon_i\n$$\n\n## Data\n\n- `mtcars`: 32 cars road-tested by *Motor Trend* in 1974\n- Outcome: miles per gallon (higher = smugger)\n- Predictors: cylinders (mouths) and horsepower (enthusiasm)\n\n## Results 1\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](poster_files/figure-pdf/unnamed-chunk-1-1.pdf){width=100%}\n:::\n:::\n\n:::\n\n::: column\n## Results 2\n\n**H1 confirmed:** an 8-cylinder car loses about 8.5 mpg relative to a 4-cylinder car.\n\n\\begin{center}\\LARGE\n\n\\begin{tabular}{lc}\n\\toprule\n & Model 1\\\\\n\\midrule\nConstant & 28.650***\\\\\n & (1.588)\\\\\n6 cylinders & -5.968**\\\\\n & (1.639)\\\\\n8 cylinders & -8.521**\\\\\n & (2.326)\\\\\nHorsepower & -0.024\\\\\n & (0.015)\\\\\nNum.Obs. & 32\\\\\nR2 & 0.754\\\\\n\\bottomrule\n\\end{tabular}\n\\end{center}\n\n## Conclusion\n\n- More cylinders, fewer miles per gallon\n- **H2 runs out of gas:** horsepower is guilty in spirit, but $p \\approx 0.13$\n- Future work: data from after 1974, and asking who *needs* a V8 for groceries\n\nVroom?\n:::\n",
+    "supporting": [
+      "poster_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": null,
+    "postProcess": false
+  }
+}

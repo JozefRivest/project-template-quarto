@@ -1,33 +1,70 @@
 ---
-title: "How geopolitical factor change people"
+title: "Thirsty Engines: Why Your 1974 Car Hates Your Wallet"
 format: beamer
 ---
 
 # Introduction
 
-## Overview {.notitle}
+## The question
 
-- This will be a very fun day
+- Humanity's oldest question: *why am I at the gas station again?*
+- Data: 32 cars road-tested by *Motor Trend* in 1974
+- **Today:** do cylinders and horsepower make cars thirsty?
 
 # Theory
 
-## Puzzle {.notitle}
+## Puzzle
 
-- This is a very puzzling question
+- The Toyota Corolla gets **33.9** mpg...
+- ...the Cadillac Fleetwood gets **10.4** mpg
+- What is the Cadillac doing with all that gas?
 
-## Puzzle {.notitle}
+## Argument
 
-- I know right!
+1. **Many Mouths:** each cylinder is a tiny mouth that drinks gasoline
+2. **Enthusiasm:** horsepower is *how hard* those mouths drink
+
+. . .
+
+**H1:** More cylinders $\rightarrow$ fewer miles per gallon
+
+**H2:** More horsepower $\rightarrow$ fewer miles per gallon
 
 # Design
 
-## {.notitle}
+## Empirical strategy
 
-- I did a very cool design
+$$
+\text{MPG}_i = \beta_0 + \beta_1 \text{Cylinders}_i + \beta_2 \text{Horsepower}_i + \varepsilon_i
+$$
+
+- `mtcars` ($N = 32$), the most-analyzed dataset in human history
+- OLS, because I know how to do it
+- $\varepsilon_i$: aerodynamics, driver mood, Led Zeppelin on the 8-track
 
 # Results
 
-## First {.notitle}
+## Raw relationship {.notitle}
 
-- This is very cool results indeed!
+```{r}
+#| fig-width: 6
+#| fig-height: 3.6
+source("../code/03_figures.R")
+plot_hp_mpg(base_size = 13)
+```
 
+## The determinants of engine thirst
+
+```{r}
+source("../code/04_tables.R")
+modelsummary(list("Model 1" = mod), stars = TRUE, coef_map = coef_labels,
+             gof_map = gof_rows,
+             estimate = "{estimate}{stars} ({std.error})", statistic = NULL,
+             width = 0.75)
+```
+
+## Takeaways
+
+- **H1 confirmed:** an 8-cylinder car loses $\approx 8.5$ mpg vs. a 4-cylinder
+- **H2 runs out of gas:** horsepower is guilty in spirit, but $p \approx 0.13$
+- Next steps: data from after 1974, and asking who *needs* a V8 for groceries

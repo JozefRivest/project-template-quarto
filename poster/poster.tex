@@ -60,7 +60,7 @@
 % Title
 % ====================
 
-\title{How geopolitical factors change people}
+\title{Thirsty Engines: Why Your 1974 Car Hates Your Wallet}
 
 \author{Jozef Rivest}
 
@@ -96,15 +96,37 @@
 
 \begin{block}{Motivation}
 
-Introduction
+Humanity's oldest question: \emph{why am I at the gas station again?}
+Your uncle with the 1973 Cadillac has opinions. This poster has data.
 
 \end{block}
 
 \begin{block}{Puzzle}
 
+The Toyota Corolla gets \textbf{33.9} miles per gallon. The Cadillac
+Fleetwood gets \textbf{10.4}. What is the Cadillac \emph{doing} with all
+that gas?
+
 \end{block}
 
 \begin{block}{A bit of theory}
+
+Two mechanisms explain engine thirst:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Many Mouths:} each cylinder is a tiny mouth that drinks
+  gasoline
+\item
+  \textbf{Enthusiasm:} horsepower is \emph{how hard} those mouths drink
+\end{enumerate}
+
+\textbf{H1:} More cylinders mean fewer miles per gallon.
+
+\textbf{H2:} Holding cylinders constant, more horsepower means fewer
+miles per gallon.
 
 \end{block}
 
@@ -116,15 +138,31 @@ Introduction
 
 \begin{block}{Design}
 
-Cool stuff
+I estimate the following model with OLS, because I know how to do it:
+
+\[
+\text{MPG}_i = \beta_0 + \beta_1 \text{Cyl}_i + \beta_2 \text{HP}_i + \varepsilon_i
+\]
 
 \end{block}
 
 \begin{block}{Data}
 
+\begin{itemize}
+\tightlist
+\item
+  \texttt{mtcars}: 32 cars road-tested by \emph{Motor Trend} in 1974
+\item
+  Outcome: miles per gallon (higher = smugger)
+\item
+  Predictors: cylinders (mouths) and horsepower (enthusiasm)
+\end{itemize}
+
 \end{block}
 
 \begin{block}{Results 1}
+
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{poster_files/figure-pdf/unnamed-chunk-1-1.pdf}
 
 \end{block}
 
@@ -136,11 +174,46 @@ Cool stuff
 
 \begin{block}{Results 2}
 
+\textbf{H1 confirmed:} an 8-cylinder car loses about 8.5 mpg relative to
+a 4-cylinder car.
+
+\begin{center}\LARGE
+
+\begin{tabular}{lc}
+\toprule
+ & Model 1\\
+\midrule
+Constant & 28.650***\\
+ & (1.588)\\
+6 cylinders & -5.968**\\
+ & (1.639)\\
+8 cylinders & -8.521**\\
+ & (2.326)\\
+Horsepower & -0.024\\
+ & (0.015)\\
+Num.Obs. & 32\\
+R2 & 0.754\\
+\bottomrule
+\end{tabular}
+\end{center}
+
 \end{block}
 
 \begin{block}{Conclusion}
 
-Right?
+\begin{itemize}
+\tightlist
+\item
+  More cylinders, fewer miles per gallon
+\item
+  \textbf{H2 runs out of gas:} horsepower is guilty in spirit, but
+  \(p \approx 0.13\)
+\item
+  Future work: data from after 1974, and asking who \emph{needs} a V8
+  for groceries
+\end{itemize}
+
+Vroom?
 
 \end{block}
 

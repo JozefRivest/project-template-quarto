@@ -1,0 +1,5 @@
+# Discussion
+
+These results should be interpreted with caution. First, $N = 32$, which is a small sample by most standards and a large one by the standards of people who own a Maserati. Second, the data are from 1974, so the findings may not generalize to modern cars, electric vehicles, or the Flintstones' car, which runs entirely on foot power. Third, cylinders and horsepower are highly correlated, which makes it hard to tell the Many Mouths apart from the Enthusiasm---a classic case of multicollinearity, or as economists call it, "a Tuesday."
+
+Additional robustness checks, including a careful examination of whether the Ferrari Dino is just showing off, are reported in the [Appendix](#sec-appendix) and the [Supplementary Materials](#sec-supplementary).

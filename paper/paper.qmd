@@ -1,5 +1,5 @@
 ---
-title: "This is a very cool paper"
+title: "Thirsty Engines: Cylinders, Horsepower, and the Eternal Search for a Gas Station"
 format: pdf
 ---
 

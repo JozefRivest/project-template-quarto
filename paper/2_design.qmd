@@ -1,1 +1,19 @@
-# Design
+# Design {#sec-design}
+
+The data come from `mtcars`, which ships with every installation of R and has therefore been analyzed more times than any dataset in human history. It covers 32 cars, ranging from the frugal Toyota Corolla (33.9 mpg) to the Cadillac Fleetwood (10.4 mpg), a vehicle that can be heard draining oil reserves from several counties away.
+
+I estimate the following model using ordinary least squares, chosen for its reliability, its simplicity, and the fact that the author knows how to do it:
+
+$$
+\text{MPG}_i = \beta_0 + \beta_1 \text{Cylinders}_i + \beta_2 \text{Horsepower}_i + \varepsilon_i
+$$ {#eq-model}
+
+where $\varepsilon_i$ captures everything else, such as aerodynamics, driver mood, and whether the 8-track was playing Led Zeppelin. @tbl-descriptives summarizes the main variables.
+
+| Variable   | Description                         | Mean  |
+|:-----------|:------------------------------------|------:|
+| `mpg`      | Miles per gallon (higher = smugger) | 20.09 |
+| `cyl`      | Number of tiny drinking mouths      |  6.19 |
+| `hp`       | Gross horsepower (enthusiasm)       | 146.7 |
+
+: Descriptive statistics {#tbl-descriptives}
