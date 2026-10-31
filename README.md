@@ -294,3 +294,15 @@ python org_table.py readings.yaml --xlsx
 
 Other options: `--columns`, `--sort Date`, `--filter Journal=APSR`, and
 `--html`. Run `python org_table.py --help` for the full list.
+
+## License
+
+The template is released under the [MIT License](LICENSE): you can use,
+modify, and share it, including in your own projects, as long as you keep the
+copyright notice. A few bundled components keep their own licenses: the
+Beamer theme, adapted from [Metropolis](https://github.com/matze/mtheme) by
+Matthias Vogelgesang (CC BY-SA 4.0), and the poster theme, based on
+[Gemini](https://github.com/anishathalye/gemini) by Anish Athalye (MIT). The
+University of Michigan Block M logo is a trademark and is not covered by any
+license here. See
+[`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for details.
