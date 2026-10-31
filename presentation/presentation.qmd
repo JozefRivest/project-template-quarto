@@ -1,0 +1,33 @@
+---
+title: "How geopolitical factor change people"
+format: beamer
+---
+
+# Introduction
+
+## Overview {.notitle}
+
+- This will be a very fun day
+
+# Theory
+
+## Puzzle {.notitle}
+
+- This is a very puzzling question
+
+## Puzzle {.notitle}
+
+- I know right!
+
+# Design
+
+## {.notitle}
+
+- I did a very cool design
+
+# Results
+
+## First {.notitle}
+
+- This is very cool results indeed!
+

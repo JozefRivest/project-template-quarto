@@ -1,0 +1,15 @@
+\usepackage{orcidlink}
+$if(title)$
+\title$if(shorttitle)$[$shorttitle$]$endif${$title$}
+$endif$
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
+
+\author{$for(by-author)$$by-author.name.literal$$if(by-author.orcid)$~\orcidlink{$by-author.orcid$}$endif$$sep$ \and $endfor$}
+
+\institute{$for(by-author)$$for(by-author.affiliations)$$by-author.affiliations.name$$sep$, $endfor$$if(by-author.email)$ \\ \texttt{\footnotesize $by-author.email$}$endif$$sep$ \\[1ex] $endfor$}
+
+$if(date)$
+\date{$date$}
+$endif$

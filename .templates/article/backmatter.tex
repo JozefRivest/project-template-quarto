@@ -1,0 +1,59 @@
+% Back-matter styling, used by backmatter.lua.
+\usepackage{titletoc}
+
+% Appendix, from `# Appendix {.appendix}` onwards.
+% #1 = title, #2 = label used by [link text](#sec-appendix)
+\newcommand{\startappendix}[2]{%
+	\clearpage
+	% Lettered numbering: sections A, A.1; Figure A1, Table A1, (A1)
+	\appendix
+	\counterwithin{figure}{section}%
+	\counterwithin{table}{section}%
+	\counterwithin{equation}{section}%
+	\renewcommand{\thefigure}{\thesection\arabic{figure}}%
+	\renewcommand{\thetable}{\thesection\arabic{table}}%
+	\renewcommand{\theequation}{\thesection\arabic{equation}}%
+	\phantomsection\label{#2}%
+	\addcontentsline{toc}{section}{#1}%
+	\begin{center}
+		{\LARGE\bfseries #1}
+	\end{center}
+	\vspace{1.5em}
+}
+
+% Supplementary materials, from `# Supplementary Materials {.supplementary}`
+% onwards. #1 = title, #2 = label used by [link text](#sec-supplementary),
+% #3 = paper title (empty if the document has none)
+\newcommand{\startsupplementary}[3]{%
+	\clearpage
+	% S-prefixed numbering: sections S1, S1.1; Figure S1, Table S1, (S1)
+	% (undo the per-section numbering set by \startappendix, if any)
+	\counterwithout{figure}{section}%
+	\counterwithout{table}{section}%
+	\counterwithout{equation}{section}%
+	\setcounter{section}{0}%
+	\renewcommand{\thesection}{S\arabic{section}}%
+	\renewcommand{\theHsection}{S\arabic{section}}%
+	\setcounter{figure}{0}%
+	\renewcommand{\thefigure}{S\arabic{figure}}%
+	\renewcommand{\theHfigure}{S\arabic{figure}}%
+	\setcounter{table}{0}%
+	\renewcommand{\thetable}{S\arabic{table}}%
+	\renewcommand{\theHtable}{S\arabic{table}}%
+	\setcounter{equation}{0}%
+	\renewcommand{\theequation}{S\arabic{equation}}%
+	\renewcommand{\theHequation}{S\arabic{equation}}%
+	% Page numbers restart as S-1, S-2, ...
+	\pagenumbering{arabic}%
+	\renewcommand{\thepage}{S-\arabic{page}}%
+	\phantomsection\label{#2}%
+	\addcontentsline{toc}{section}{#1}%
+	\begin{center}
+		{\LARGE\bfseries #1\if\relax\detokenize{#3}\relax\else: #3\fi}
+	\end{center}
+	\vspace{1.5em}
+	% Table of contents covering only the supplementary materials
+	\startcontents[supplementary]%
+	\printcontents[supplementary]{}{1}{{\large\bfseries Contents}\par\medskip}%
+	\clearpage
+}

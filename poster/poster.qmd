@@ -1,0 +1,38 @@
+---
+title: "How geopolitical factors change people"
+author: Jozef Rivest
+university: University of Michigan
+email: jrivest@umich.edu
+github: https://github.com/JozefRivest
+logo-right: true
+date: last-modified
+format:
+  quarto-poster-template-pdf: default
+---
+
+::: column
+## Motivation
+
+Introduction
+
+## Puzzle
+
+## A bit of theory
+
+:::
+
+::: column
+## Design
+Cool stuff
+
+## Data
+
+## Results 1
+:::
+
+::: column
+## Results 2
+
+## Conclusion
+Right?
+:::

@@ -1,0 +1,11 @@
+$-- Quarto prints the biblatex bibliography at the very end of the document
+$-- (after the appendix). refs.lua prints it at the :::{#refs} div instead.
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+\renewcommand\refname{$biblio-title$}
+$endif$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+
+$endif$
+$endif$

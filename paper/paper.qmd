@@ -1,0 +1,27 @@
+---
+title: "This is a very cool paper"
+format: pdf
+---
+
+{{< include 0_introduction.qmd >}}
+{{< include 1_theory.qmd >}}
+{{< include 2_design.qmd >}}
+{{< include 3_results.qmd >}}
+{{< include 4_discussion.qmd >}}
+{{< include 5_conclusion.qmd >}}
+
+
+{{< pagebreak >}}
+
+# References {.unnumbered}
+
+:::{#refs}
+:::
+
+{{< pagebreak >}}
+
+{{< include 6_appendix.qmd >}}
+
+{{< pagebreak >}}
+
+{{< include ../supplementary_information/supplementary.qmd >}}

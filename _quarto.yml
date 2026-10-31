@@ -1,0 +1,54 @@
+project:
+  type: default
+  output-dir: _output
+  render:
+    - paper/paper.qmd
+    - presentation/presentation.qmd
+    - paper/appendix.qmd
+    - poster/poster.qmd
+
+author:
+  - name: Jozef Rivest
+    email: jrivest@umich.edu
+    orcid: 0000-0002-3195-3838
+    affiliation: University of Michigan, Department of political science
+
+date: today
+date-format: long
+
+bibliography: references/refs.bib
+
+execute:
+  echo: false
+  freeze: auto
+
+format:
+  pdf:
+    documentclass: article
+    cite-method: biblatex
+    biblatexoptions:
+      - authordate
+    geometry:
+      - margin=1in
+    number-sections: true
+    colorlinks: true
+    citecolor: Maroon
+    urlcolor: Maroon
+    linkcolor: Maroon
+    template-partials:
+      - .templates/article/biblio-config.tex
+      - .templates/article/biblio.tex
+    include-in-header:
+      - file: .templates/article/backmatter.tex
+    filters:
+      - .templates/article/backmatter.lua
+      - .templates/article/refs.lua
+
+  beamer:
+    theme: umich
+    pdf-engine: pdflatex
+    filters:
+      - .templates/beamer/notitle.lua
+    template-partials:
+      - .templates/beamer/title.tex
+      - .templates/beamer/before-body.tex
