@@ -21,7 +21,8 @@ _output/paper/paper.pdf: paper/*.qmd supplementary_information/supplementary.qmd
 	quarto render paper/paper.qmd
 
 _output/presentation/presentation.pdf: presentation/presentation.qmd \
-	$(FIGURES_TABLES) _quarto.yml
+	$(FIGURES_TABLES) _quarto.yml \
+	$(wildcard .templates/beamer/* .templates/umich/*)
 	quarto render presentation/presentation.qmd
 
 _output/poster/poster.pdf: poster/poster.qmd $(FIGURES_TABLES) _quarto.yml \

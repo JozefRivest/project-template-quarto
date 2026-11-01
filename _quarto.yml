@@ -1,3 +1,9 @@
+author:
+  - name: Jozef Rivest
+    email: jrivest@umich.edu
+    orcid: 0000-0002-3195-3838
+    affiliation: University of Michigan, Department of political science
+
 project:
   type: default
   output-dir: _output
@@ -6,16 +12,20 @@ project:
     - presentation/presentation.qmd
     - poster/poster.qmd
 
-author:
-  - name: Jozef Rivest
-    email: jrivest@umich.edu
-    orcid: 0000-0002-3195-3838
-    affiliation: University of Michigan, Department of political science
-
 date: today
 date-format: long
 
 bibliography: references/refs.bib
+
+# Colors for the slides and the poster (optional). Use hex codes in quotes.
+# Unset colors keep the University of Michigan defaults.
+main-color: "#00274C" # fallback for the title, header, and text colors
+title-color: "#00274C" # frame titles; poster block titles
+header-color: "#00274C" # slide navigation bar; poster header and footer
+text-color: "#00274C" # body text (poster default: black)
+accent-color: "#FFCB05" # progress bar, navigation dots; poster title rules
+alert-color: "#9A3324" # slides only: \alert{} text and alert blocks
+example-color: "#2F65A7" # slides only: example blocks
 
 execute:
   echo: false
@@ -34,6 +44,7 @@ format:
     citecolor: Maroon
     urlcolor: Maroon
     linkcolor: Maroon
+    # The following are very important, don't remove them
     template-partials:
       - .templates/article/biblio-config.tex
       - .templates/article/biblio.tex
@@ -46,8 +57,10 @@ format:
   beamer:
     theme: umich
     pdf-engine: pdflatex
+    # The following are very important, don't remove them
     filters:
       - .templates/beamer/notitle.lua
+      - .templates/beamer/colors.lua
     template-partials:
       - .templates/beamer/title.tex
       - .templates/beamer/before-body.tex

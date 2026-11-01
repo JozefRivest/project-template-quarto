@@ -16,6 +16,11 @@
 \usepackage[size=custom, width=122,height=91, scale=1.2]{beamerposter}
 \usetheme{gemini}
 \usecolortheme{msu}
+% Optional colors from YAML (main-color, title-color, header-color,
+% text-color, accent-color), turned into LaTeX by poster.lua.
+$if(poster-colors)$
+$poster-colors$
+$endif$
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{longtable}

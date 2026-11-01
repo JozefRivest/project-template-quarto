@@ -69,13 +69,80 @@ function Div(el)
   return out
 end
 
+-- "#7a0019" or "7A0019" -> "7A0019"; anything else -> nil (with a warning).
+local function hex(meta, key)
+  local value = meta[key]
+  if value == nil then
+    return nil
+  end
+  local s = pandoc.utils.stringify(value):gsub("^%s*#?", ""):gsub("%s*$", "")
+  if s:match("^%x%x%x%x%x%x$") then
+    return s:upper()
+  end
+  io.stderr:write("WARNING (poster.lua): ignoring " .. key .. ": '" ..
+    pandoc.utils.stringify(value) .. "' (expected a hex code like \"#00274C\")\n")
+  return nil
+end
+
+-- Poster colors from YAML (quoted hex codes):
+--   main-color:   header, footer, block titles, and bullets
+--   title-color:  block titles              (default: main-color)
+--   header-color: header and footer band    (default: main-color)
+--   text-color:   body text                 (default: black)
+--   accent-color: line under block titles   (default: black)
+local function poster_colors(meta)
+  local main = hex(meta, "main-color")
+  local title = hex(meta, "title-color")
+  local header = hex(meta, "header-color")
+  local text = hex(meta, "text-color")
+  local accent = hex(meta, "accent-color")
+
+  local out = {}
+  local function add(line) table.insert(out, line) end
+
+  -- umichblue drives the header, footer, block titles, and bullets.
+  if main then add("\\definecolor{umichblue}{HTML}{" .. main .. "}") end
+  if title then
+    add("\\definecolor{postertitle}{HTML}{" .. title .. "}")
+    for _, b in ipairs({ "block title", "block alerted title", "block example title" }) do
+      add("\\setbeamercolor{" .. b .. "}{fg=postertitle}")
+    end
+  end
+  if header then
+    add("\\definecolor{posterheader}{HTML}{" .. header .. "}")
+    add("\\setbeamercolor{headline}{bg=posterheader}")
+  end
+  if text then
+    add("\\definecolor{postertext}{HTML}{" .. text .. "}")
+    for _, b in ipairs({ "normal text", "block body", "block alerted body",
+                         "block example body", "heading" }) do
+      add("\\setbeamercolor{" .. b .. "}{fg=postertext}")
+    end
+  end
+  if accent then
+    add("\\definecolor{posteraccent}{HTML}{" .. accent .. "}")
+    for _, b in ipairs({ "block separator", "block alerted separator",
+                         "block example separator" }) do
+      add("\\setbeamercolor{" .. b .. "}{bg=posteraccent}")
+    end
+  end
+  return out
+end
+
 -- Pass logo settings to the template as raw LaTeX, so a path such as
--- `logos/my_logo.png` is not escaped (`my\_logo.png`) by pandoc.
+-- `logos/my_logo.png` is not escaped (`my\_logo.png`) by pandoc, and build
+-- the color definitions for the template's `poster-colors` slot.
 function Meta(meta)
   for _, key in ipairs({ "logo", "logo-height" }) do
     if meta[key] ~= nil then
       meta[key] = pandoc.RawInline("latex", pandoc.utils.stringify(meta[key]))
     end
+  end
+  local colors = poster_colors(meta)
+  if #colors > 0 then
+    meta["poster-colors"] = pandoc.MetaBlocks({
+      pandoc.RawBlock("latex", table.concat(colors, "\n"))
+    })
   end
   return meta
 end

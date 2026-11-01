@@ -232,6 +232,42 @@ The poster template does not load `tabularray`, so `modelsummary`'s default
 output will not compile there. Build the table with `knitr::kable(...,
 format = "latex", booktabs = TRUE)` instead (see `poster/poster.qmd`).
 
+## Colors
+
+The slides and the poster use the University of Michigan colors by default.
+To use your own, set any of these in `_quarto.yml` (they then apply to both the
+slides and the poster) or in the YAML header of `presentation.qmd` or
+`poster.qmd` (they then apply to that document only):
+
+```yaml
+main-color: "#7A0019"      # fallback for the title, header, and text colors
+title-color: "#7A0019"     # frame titles; poster block titles
+header-color: "#2B2B2B"    # slide navigation bar; poster header and footer
+text-color: "#1C1C1C"      # body text
+accent-color: "#E87722"    # progress bar, navigation dots; poster title rules
+alert-color: "#9A3324"     # slides only: \alert{} text and alert blocks
+example-color: "#2F65A7"   # slides only: example blocks
+```
+
+| Option          | Slides                              | Poster                    | If not set                          |
+|-----------------|-------------------------------------|---------------------------|-------------------------------------|
+| `main-color`    | title, header, and text, unless set | title and header, plus bullets | Michigan blue `#00274C`        |
+| `title-color`   | frame-title bar, title-page title   | block titles              | `main-color`                        |
+| `header-color`  | navigation bar                      | header and footer band    | `main-color`                        |
+| `text-color`    | body text and bullets               | body text                 | slides: `main-color`; poster: black |
+| `accent-color`  | progress bar, navigation dots       | line under block titles   | slides: maize; poster: black        |
+| `alert-color`   | `\alert{}` text, alert blocks       | (not used)                | Tappan Red `#9A3324`                |
+| `example-color` | example blocks                      | (not used)                | Arboretum Blue `#2F65A7`            |
+
+Setting only `main-color` recolors the titles, the header, and the slide text
+at once; add `title-color`, `header-color`, or `text-color` to change one of
+them separately. Poster text stays black unless you set `text-color`.
+
+Use six-digit hex codes, in quotes (in YAML, an unquoted `#` starts a
+comment). A value that is not a valid hex code is ignored with a warning.
+These options do not change the colors inside figures, which are set in the
+plotting code (for example `cyl_colors` in `code/03_figures.R`).
+
 ## GitHub issues
 
 If you wish to edit your issues within your terminal, without going to
@@ -292,7 +328,8 @@ _output/paper/paper.pdf: paper/*.qmd supplementary_information/supplementary.qmd
 	quarto render paper/paper.qmd
 
 _output/presentation/presentation.pdf: presentation/presentation.qmd \
-	$(FIGURES_TABLES) _quarto.yml
+	$(FIGURES_TABLES) _quarto.yml \
+	$(wildcard .templates/beamer/* .templates/umich/*)
 	quarto render presentation/presentation.qmd
 
 _output/poster/poster.pdf: poster/poster.qmd $(FIGURES_TABLES) _quarto.yml \
