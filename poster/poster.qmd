@@ -13,7 +13,7 @@ format:
 ::: column
 ## Motivation
 
-Humanity's oldest question: *why am I at the gas station again?* Your uncle with the 1973 Cadillac has opinions. This poster has data.
+Humanity's oldest question: *why am I at the gas station again?* Your uncle with the 1973 Cadillac has opinions. This poster has data [@arel-bundock25].
 
 ## Puzzle
 
@@ -100,13 +100,24 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 ```{r}
 #| results: asis
 source("../code/04_tables.R")
-tab <- modelsummary(mod, stars = TRUE, coef_map = coef_labels,
-                    gof_map = gof_rows, output = "data.frame")
+tab <- modelsummary(
+  mod,
+  stars = TRUE,
+  coef_map = coef_labels,
+  gof_map = gof_rows,
+  output = "data.frame"
+)
 tab$term[tab$statistic == "std.error"] <- ""
 cat("\\begin{center}\\LARGE\n")
-cat(knitr::kable(tab[, c("term", "(1)")], format = "latex", booktabs = TRUE,
-                 col.names = c("", "Model 1"), align = "lc",
-                 row.names = FALSE, linesep = ""))
+cat(knitr::kable(
+  tab[, c("term", "(1)")],
+  format = "latex",
+  booktabs = TRUE,
+  col.names = c("", "Model 1"),
+  align = "lc",
+  row.names = FALSE,
+  linesep = ""
+))
 cat("\n\\end{center}\n")
 ```
 
@@ -130,7 +141,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 ## References
 
-- Lorem, I. (2025). *Dolor Sit Amet*. Consectetur Press.
-- Ipsum, L., & Dolor, S. (2024). Adipiscing elit sed do eiusmod. *Journal of Tempor Studies*, 12(3), 45--67.
-- Amet, C. (2023). Ut labore et dolore magna aliqua. *Review of Veniam*, 8(1), 1--22.
+:::{#refs}
+:::
+
 :::

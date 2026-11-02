@@ -23,6 +23,7 @@ format: beamer
 
 1. **Many Mouths:** each cylinder is a tiny mouth that drinks gasoline
 2. **Enthusiasm:** horsepower is *how hard* those mouths drink
+3. Drawing on @arel-bundock25 to communicate our estimand more effectively
 
 . . .
 
@@ -57,10 +58,15 @@ plot_hp_mpg(base_size = 13)
 
 ```{r}
 source("../code/04_tables.R")
-modelsummary(list("Model 1" = mod), stars = TRUE, coef_map = coef_labels,
-             gof_map = gof_rows,
-             estimate = "{estimate}{stars} ({std.error})", statistic = NULL,
-             width = 0.75)
+modelsummary(
+  list("Model 1" = mod),
+  stars = TRUE,
+  coef_map = coef_labels,
+  gof_map = gof_rows,
+  estimate = "{estimate}{stars} ({std.error})",
+  statistic = NULL,
+  width = 0.75
+)
 ```
 
 ## Takeaways
@@ -68,3 +74,8 @@ modelsummary(list("Model 1" = mod), stars = TRUE, coef_map = coef_labels,
 - **H1 confirmed:** an 8-cylinder car loses $\approx 8.5$ mpg vs. a 4-cylinder
 - **H2 runs out of gas:** horsepower is guilty in spirit, but $p \approx 0.13$
 - Next steps: data from after 1974, and asking who *needs* a V8 for groceries
+
+## References
+
+:::{#refs}
+:::

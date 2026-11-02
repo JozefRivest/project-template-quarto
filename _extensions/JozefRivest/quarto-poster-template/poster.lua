@@ -114,8 +114,13 @@ local function poster_colors(meta)
   end
   if text then
     add("\\definecolor{postertext}{HTML}{" .. text .. "}")
+    -- The color theme sets the bibliography to black on its own, so include
+    -- it here for references to follow the text color.
     for _, b in ipairs({ "normal text", "block body", "block alerted body",
-                         "block example body", "heading" }) do
+                         "block example body", "heading",
+                         "bibliography item", "bibliography entry author",
+                         "bibliography entry title", "bibliography entry location",
+                         "bibliography entry note" }) do
       add("\\setbeamercolor{" .. b .. "}{fg=postertext}")
     end
   end

@@ -228,6 +228,21 @@ Content is laid out in columns:
 :::
 ```
 
+Citations work as in the rest of the project: cite with `@key` or `[@key]`
+(keys from `references/refs.bib`), and put an empty `refs` div where the
+reference list should go, for example inside a References block:
+
+```markdown
+## References
+
+::: {#refs}
+:::
+```
+
+The poster and the slides format references with CSL (Chicago author-date by
+default; set `csl:` to a `.csl` file to change the style), while the paper
+uses biblatex.
+
 The poster template does not load `tabularray`, so `modelsummary`'s default
 output will not compile there. Build the table with `knitr::kable(...,
 format = "latex", booktabs = TRUE)` instead (see `poster/poster.qmd`).

@@ -4,3 +4,9 @@
 # LaTeX build artifacts
 *.ptc
 *.log
+*.aux
+*.out
+*.vrb
+*.nav
+*.snm
+*.toc
